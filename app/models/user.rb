@@ -2,20 +2,22 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  email           :string
-#  password_digest :string
-#  userName        :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                     :integer          not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  user_name              :string
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-    has_secure_password
-    has_many :recipes
-
-    validates :userName, presence: true
-    validates :userName, uniqueness: true
-    validates :email, presence: true
-    validates :email, uniqueness: true	
-    validates :password_digest, presence: true   
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 end

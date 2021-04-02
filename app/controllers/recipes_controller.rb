@@ -2,9 +2,8 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show]
 
   def index
-        recipes = Recipe.all
-        render json: RecipeSerializer.new(recipes).serializable_hash
-    end
+        @recipes = Recipe.all
+  end
 
     def create
       @recipe = current_user.recipes.build(name: params[:name])

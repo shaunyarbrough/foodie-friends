@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_action :find_user, only: [:index,:show]
   def signup
   end
 
