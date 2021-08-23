@@ -1,5 +1,6 @@
-import React from 'react';
+//TODO: Create an actual home page
 
+import React from 'react';
 class Home extends React.Component{
     render(){
         return(

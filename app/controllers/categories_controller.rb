@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+helclass CategoriesController < ApplicationController
     def destroy
         @category = Category.find_by_id(params[:id])
         if @category.destroy

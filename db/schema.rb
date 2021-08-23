@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 2021_06_28_050706) do
+=======
+ActiveRecord::Schema.define(version: 2021_08_03_220340) do
+>>>>>>> Stashed changes
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -61,6 +65,16 @@ ActiveRecord::Schema.define(version: 2021_06_28_050706) do
     t.integer "recipe_id"
   end
 
+<<<<<<< Updated upstream
+=======
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "content"
+    t.boolean "read"
+  end
+
+>>>>>>> Stashed changes
   create_table "photos", force: :cascade do |t|
     t.string "recipe_id"
     t.datetime "created_at", precision: 6, null: false
